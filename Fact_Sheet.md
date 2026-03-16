@@ -1,7 +1,7 @@
 # NTIRE 2026 Image Super-Resolution Challenge - Fact Sheet
 
 ## 1. Team details
-- **Team name:** Team 01
+- **Team name:** Team 26
 - **Team leader name:** User/Antigravity
 - **Team leader address, phone number, and email:** (Please fill before final submission)
 - **Rest of the team members:** (Please fill)

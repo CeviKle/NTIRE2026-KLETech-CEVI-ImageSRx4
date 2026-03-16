@@ -1,6 +1,6 @@
-# NTIRE 2026 Challenge on Image Super-Resolution (x4) - Team 01 (SwinIR_180)
+# NTIRE 2026 Challenge on Image Super-Resolution (x4) - Team 26 (SwinIR_180)
 
-This repository contains the official code submission for **Team 01** in the **NTIRE 2026 Image Super-Resolution (x4) Challenge**. Our solution is based on an enhanced, high-capacity variant of the **SwinIR** (Swin Transformer for Image Restoration) architecture.
+This repository contains the official code submission for **Team 26** in the **NTIRE 2026 Image Super-Resolution (x4) Challenge**. Our solution is based on an enhanced, high-capacity variant of the **SwinIR** (Swin Transformer for Image Restoration) architecture.
 
 Our model achieves highly competitive results by scaling the embedding dimensions to 180 and fine-tuning with a composite Charbonnier and VGG Perceptual loss on the DF2K dataset.
 
@@ -54,14 +54,14 @@ pip install opencv-python numpy tqdm matplotlib timm
 ## ⚙️ 3. Pretrained Model Weights
 
 The fine-tuned model checkpoint achieving the submitted results is already included in this repository.
-* **Path:** `model_zoo/SwinIR_180/best_model.pth`
+* **Path:** `model_zoo/team26_SwinIR_180/best_model.pth`
 * **Note:** You do not need to download any external weights. The submission package is fully self-contained.
 
 ---
 
 ## 🏃 4. Running the Inference (Testing)
 
-We use the official benchmark script `test.py` provided by the challenge organizers. Our specific model is accessed by passing the argument `--model_id 1`.
+We use the official benchmark script `test.py` provided by the challenge organizers. Our specific model is accessed by passing the argument `--model_id 26`.
 
 ### Command to Restore Images:
 
@@ -71,14 +71,14 @@ To run inference on your folder of Low-Resolution (LR) images, execute the follo
 CUDA_VISIBLE_DEVICES=0 python test.py \
     --test_dir /absolute/path/to/your/LR_images \
     --save_dir ./results \
-    --model_id 1
+    --model_id 26
 ```
 
 ### Parameter Breakdown:
 * `CUDA_VISIBLE_DEVICES=0`: Specifies which GPU to use (use `0,1` for multi-GPU).
 * `--test_dir`: **[Replace this]** The path to the directory containing your Low-Resolution (LQ) input images.
 * `--save_dir`: The directory where the high-resolution output images will be stored (defaults to `./results`).
-* `--model_id 1`: **[CRITICAL]** This tells the script to load our custom `Team01_SwinIR` model and its corresponding pretrained weights.
+* `--model_id 26`: **[CRITICAL]** This tells the script to load our custom `Team26_SwinIR` model and its corresponding pretrained weights.
 
 **Expectation:**
 The script will sequentially process each image in your `--test_dir`. You will see a `tqdm` progress bar in the terminal, and the final 4x upscaled images will be saved directly to the `--save_dir`. The script automatically handles necessary border padding for the Swin Transformer's attention windows.
@@ -110,10 +110,10 @@ For more profound details on the training paradigm, loss functions (Charbonnier 
 NTIRE2026-KLETech-CEVI-ImageSRx4/
 ├── models/
 │   ├── network_swinir.py       # Core SwinIR architecture definition
-│   ├── team01_SwinIR.py        # Wrapper script for handling padding & model instantiation
+│   ├── team26_SwinIR.py        # Wrapper script for handling padding & model instantiation
 │   └── ... 
 ├── model_zoo/
-│   └── SwinIR_180/
+│   └── team26_SwinIR_180/
 │       └── best_model.pth      # ★ The fine-tuned 11.9M parameter checkpoint 
 ├── test.py                     # Official evaluation script (patched to support --model_id 1)
 ├── Fact_Sheet.md               # Detailed methods and training descriptions

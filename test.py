@@ -21,11 +21,11 @@ def select_model(args, device):
         name = f"{model_id:02}_DAT_baseline"
         model_path = os.path.join('model_zoo', 'team00_dat.pth')
         model_func = DAT
-    elif model_id == 1:
+    elif model_id == 26:
         # SwinIR 180 Fine-tuned
-        from models.team01_SwinIR import main as SwinIR
+        from models.team26_SwinIR import main as SwinIR
         name = f"{model_id:02}_SwinIR_180"
-        model_path = os.path.join('model_zoo', 'SwinIR_180', 'best_model.pth')
+        model_path = os.path.join('model_zoo', 'team26_SwinIR_180', 'best_model.pth')
         model_func = SwinIR
     else:
         raise NotImplementedError(f"Model {model_id} is not implemented.")
@@ -93,7 +93,7 @@ if __name__ == "__main__":
     parser.add_argument("--valid_dir", default=None, type=str, help="Path to the validation set")
     parser.add_argument("--test_dir", default=None, type=str, help="Path to the test set")
     parser.add_argument("--save_dir", default="NTIRE2025-ImageSRx4/results", type=str)
-    parser.add_argument("--model_id", default=1, type=int)
+    parser.add_argument("--model_id", default=26, type=int)
 
     args = parser.parse_args()
     pprint(args)
