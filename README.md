@@ -1,8 +1,8 @@
 # NTIRE 2026 Challenge on Image Super-Resolution (x4) - Team 26 (SwinIR_180)
 
-This repository contains the official code submission for **Team 26** in the **NTIRE 2026 Image Super-Resolution (x4) Challenge**. Our solution is based on an enhanced, high-capacity variant of the **SwinIR** (Swin Transformer for Image Restoration) architecture.
+This repository contains the official code submission for **Team 26** in the **NTIRE 2026 Image Super-Resolution (x4) Challenge**. Our solution implements a variant of the **SwinIR** (Swin Transformer for Image Restoration) architecture.
 
-Our model achieves highly competitive results by scaling the embedding dimensions to 180 and fine-tuning with a composite Charbonnier and VGG Perceptual loss on the DF2K dataset.
+Our model uses embedding dimensions of 180 and is fine-tuned with a composite Charbonnier and VGG Perceptual loss on the DF2K dataset.
 
 ---
 
@@ -90,7 +90,7 @@ The script will sequentially process each image in your `--test_dir`. You will s
 Our submitted model is a high-capacity SwinIR explicitly configured for 4x Super-Resolution.
 
 * **Architecture:** Swin Transformer for Image Restoration (SwinIR)
-* **Embedding Dimension:** 180 (Increased from baseline for richer feature extraction)
+* **Embedding Dimension:** 180 (Configured for feature extraction capacity)
 * **Depth (RSTB Layers):** 6 blocks, each with 6 Swin Transformer layers `[6, 6, 6, 6, 6, 6]`
 * **Heads:** `[6, 6, 6, 6, 6, 6]`
 * **Window Size:** 8x8 pixels
@@ -100,7 +100,7 @@ Our submitted model is a high-capacity SwinIR explicitly configured for 4x Super
 * **Training Data:** DF2K (DIV2K Training Set + Flickr2K)
 * **Validation Performance:** Average PSNR of **28.9705 dB** and SSIM of **0.8216** on the DIV2K validation set.
 
-For more profound details on the training paradigm, loss functions (Charbonnier + 0.01* VGG Perceptual), and hyperparameter scheduling, please refer to the `Fact_Sheet.md` included in this repository.
+For more profound details on the training paradigm, loss functions (Charbonnier + 0.01* VGG Perceptual), and hyperparameter scheduling, please refer to the final project report.
 
 ---
 
@@ -114,9 +114,8 @@ NTIRE2026-KLETech-CEVI-ImageSRx4/
 │   └── ... 
 ├── model_zoo/
 │   └── team26_SwinIR_180/
-│       └── best_model.pth      # ★ The fine-tuned 11.9M parameter checkpoint 
+│       └── best_model.pth      # The fine-tuned 11.9M parameter checkpoint 
 ├── test.py                     # Official evaluation script (patched to support --model_id 1)
-├── Fact_Sheet.md               # Detailed methods and training descriptions
 ├── README.md                   # This file
 └── ...
 ```
